@@ -1,3 +1,6 @@
+import PostsPage from '../page';
+import { Suspense } from 'react';
+
 const loadPost = async ({ id }) => {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   const data = await res.json();
@@ -13,6 +16,11 @@ const PostPage = async ({ params }) => {
         {post.id}. {post.title}
       </h1>
       <p>{post.body}</p>
+      <hr />
+      <h3>Other Posts</h3>
+      <Suspense fallback={<div>Loading...</div>}>
+        <PostsPage />
+      </Suspense>
     </div>
   );
 };
