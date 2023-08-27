@@ -1,5 +1,17 @@
+import Users from '@/components/users';
+
+export const metadata = {
+  title: 'My special home page',
+};
+
 const HomePage = () => {
-  return <h1>Hello world</h1>;
+  // server component
+  return (
+    <section>
+      {/* client component */}
+      <Users />
+    </section>
+  );
 };
 
 export default HomePage;
