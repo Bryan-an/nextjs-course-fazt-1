@@ -6,7 +6,10 @@ export const GET = async () => {
   return NextResponse.json({ users: data });
 };
 
-export const POST = () => {
+export const POST = async (request) => {
+  const { name, lastName } = await request.json();
+  console.log(name, lastName);
+
   return NextResponse.json({ message: 'create data!' });
 };
 
